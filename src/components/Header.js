@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
-  render() {
-    return (
-      <header>
-        <nav>
-          <img src="https://i.imurg.com/KDIDiSE.png" />
-
-          <div>
-            <strong>Meu perfil</strong>
-            <i className="material-icons">account_circle</i>
-          </div>
-        </nav>
-      </header>
-    );
-  }
+function Header() {
+  return (
+    <header>
+      <nav>
+        <img src="https://i.imgur.com/KDIDiSE.png" />
+        <div>
+          <span>Meu perfil</span>
+          <i className="material-icons">account_circle</i>
+        </div>
+      </nav>
+    </header>
+  );
 }
 
 export default Header;
