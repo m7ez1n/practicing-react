@@ -1,5 +1,9 @@
 import React from 'react';
 
+function NewPost() {
+  return 
+}
+
 function PostHeader({ author, date }) {
   return (
     <div className="post-header">
@@ -29,9 +33,12 @@ function PostComments({ comments }) {
   );
 }
 
-function PostItem({ author, date, content, comments }) {
+function PostItem({ author, date, content, comments, onDelete }) {
   return (
     <div className="post">
+      <button onClick={onDelete} type="button">
+        <i className="material-icons">delete</i>
+      </button>
       <PostHeader author={author} date={date} />
       <p className="post-content">{content}</p>
       <PostComments comments={comments} />

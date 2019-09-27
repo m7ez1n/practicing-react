@@ -9,6 +9,7 @@ import naruto from '../assets/naruto.jpg';
 
 class PostList extends Component {
   state = {
+    newPost: '',
     posts: [
       {
         id: 1,
@@ -59,13 +60,23 @@ class PostList extends Component {
     ],
   };
 
+  componentDidUpdate(_, prevState) {
+    if (prevState.posts !== this.state.posts) {
+      localStorage.setItem('posts', JSON.stringify(this.state.posts));
+    }
+  }
+
+  handleDelete = (post) => {
+    this.setState({ posts: this.state.posts.filter(p => p !== post) });
+  }
+
   render() {
     const { posts } = this.state;
 
     return (
       <div className="postlist">
-        {posts.map(post => (
-          <PostItem key={post.id} {...post} />
+        {this.state.posts.map(post => (
+          <PostItem key={post.id} {...post} onDelete={() => this.handleDelete(post)} />
         ))}
       </div>
     );
