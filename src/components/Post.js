@@ -1,9 +1,5 @@
 import React from 'react';
 
-function NewPost() {
-  return 
-}
-
 function PostHeader({ author, date }) {
   return (
     <div className="post-header">
